@@ -22,21 +22,26 @@ categoricalGrade list =
         )
         list
 
+
 type AirplaneStatus
     = OnTime
-    | Boarding 
+    | Boarding
     | Delayed
     | Cancelled
+
 
 airplaneScheduleAction : AirplaneStatus -> String
 airplaneScheduleAction action =
     if action == Cancelled then
         "Pedir reembolso"
-    else if action == Delayed || action == OnTime then  
+
+    else if action == Delayed || action == OnTime then
         "Esperar"
-    else 
+
+    else
         "Buscar boleto"
 
+
 airportAction : List AirplaneStatus -> List String
-airportAction list = 
+airportAction list =
     List.map airplaneScheduleAction list
